@@ -25,7 +25,7 @@ public class PlayerController
 
         this.playerScriptableObject = playerScriptableObject;
         this.playerScriptableObject.KeysEquipped = 0;
-
+        LightSwitchView.lightSwitchDelegate += OnLightSwitchToggled;
         playerState = PlayerState.InDark;
     }
 
@@ -72,5 +72,12 @@ public class PlayerController
 
         rotation = playerRigidbody.rotation * Quaternion.Euler(lookRotation);
         position = (transform.position) + (velocity * movement) * Time.fixedDeltaTime;
+    }
+    private void OnLightSwitchToggled()
+    {
+        if (playerState == PlayerState.InDark)
+            playerState = PlayerState.None;
+        else
+            playerState = PlayerState.InDark;
     }
 }
