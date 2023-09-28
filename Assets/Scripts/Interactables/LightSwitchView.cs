@@ -62,7 +62,7 @@ public class LightSwitchView : MonoBehaviour, IInteractable
     {
         SetLights(false);
         GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.SwitchSound);
-        GameService.Instance.GetInstructionView().HideInstruction();
+        GameService.Instance.GetInstructionView().ShowInstruction(InstructionType.LightsOff);
     }
 
     private void onLightSwitch()
